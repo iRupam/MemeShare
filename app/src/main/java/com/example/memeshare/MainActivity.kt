@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId){
             R.id.about -> {
                 Toast.makeText(this,"About clicked",Toast.LENGTH_LONG).show()
+                startActivity(Intent(this, AboutActivity::class.java))
                 return true
             }
         }
