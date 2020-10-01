@@ -4,6 +4,8 @@ import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.android.volley.Request
@@ -81,5 +83,22 @@ class MainActivity : AppCompatActivity() {
     }
     fun nextMeme(view: View) {
         loadMeme()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_item,menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.about -> {
+                Toast.makeText(this,"About clicked",Toast.LENGTH_LONG).show()
+                startActivity(Intent(this, AboutActivity::class.java))
+                return true
+            }
+        }
+          return super.onOptionsItemSelected(item)
     }
 }
